@@ -4,13 +4,11 @@ from scipy import signal
 
 SAMPLE_RATE = 44100
 NUM_SAMPLES = 256# 1024
-
-FREQS = [500, 600, 800, 1000, 1400, 1800, 2300, 3000, 3800, 5000]#[200, 500, 1000, 2000, 5000, 10000]
+# A4 E5 A5 E6 A6 E7
+FREQS = [440.0, 659.3, 880.0, 1318.5, 1760.0, 2637.0]#[200, 500, 1000, 2000, 5000, 10000]
 
 MIN_AMPLITUDE = -1.0
 MAX_AMPLITUDE = 1.0
-
-NOISE_AMPLITUDE = 0.2
 
 WAVE_TYPE = ['sine', 'square', 'triange', 'saw', 'noise']
 
@@ -43,9 +41,9 @@ def generate_random_sample(wave_type):
             x = np.zeros_like(t)
 
     # add noise
-    noise = NOISE_AMPLITUDE * np.random.normal(0, 0.05, size= x.shape)
+    noise = np.random.normal(0, 0.01, size= x.shape)
 
-    return x+noise
+    return x + noise
 
 
 import matplotlib.pyplot as plt
