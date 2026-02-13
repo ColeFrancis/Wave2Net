@@ -3,16 +3,18 @@ import random
 from scipy import signal
 
 SAMPLE_RATE = 44100
-NUM_SAMPLES = 1024
+NUM_SAMPLES = 256# 1024
 
-FREQS = [200, 500, 1000, 2000, 5000, 10000]
+FREQS = [500, 600, 800, 1000, 1400, 1800, 2300, 3000, 3800, 5000]#[200, 500, 1000, 2000, 5000, 10000]
 
 MIN_AMPLITUDE = -1.0
 MAX_AMPLITUDE = 1.0
 
+NOISE_AMPLITUDE = 0.2
+
 WAVE_TYPE = ['sine', 'square', 'triange', 'saw', 'noise']
 
-t = np.arrange(NUM_SAMPLES) / SAMPLE_RATE
+t = np.arange(NUM_SAMPLES) / SAMPLE_RATE
 
 def generate_random_sample(wave_type):
     freq = FREQS[np.random.randint(0, len(FREQS)-1)]
@@ -35,13 +37,20 @@ def generate_random_sample(wave_type):
             x = amplitude * signal.sawtooth(2*np.pi * freq * t + phase)
 
         case 'noise':
-            x = amplitude * [random.random() for _ in range(len(t))]
+            x = amplitude * np.array([random.random() for _ in range(len(t))])
 
         case _:
             x = np.zeros_like(t)
 
     # add noise
+    noise = NOISE_AMPLITUDE * np.random.normal(0, 0.05, size= x.shape)
 
-    return x
+    return x+noise
 
 
+import matplotlib.pyplot as plt
+
+sig = generate_random_sample(WAVE_TYPE[0])
+
+plt.plot(t, sig)
+plt.show()
