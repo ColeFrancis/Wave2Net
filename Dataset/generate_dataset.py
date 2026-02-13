@@ -12,16 +12,16 @@ MAX_AMPLITUDE = 1.0
 
 WAVE_TYPE = ['sine', 'square', 'triange', 'saw', 'noise']
 
-t = np.arrange(0, 1024)
+t = np.arrange(NUM_SAMPLES) / SAMPLE_RATE
 
-def generate_random_sample(type):
+def generate_random_sample(wave_type):
     freq = FREQS[np.random.randint(0, len(FREQS)-1)]
 
     amplitude = np.random.uniform(MIN_AMPLITUDE, MAX_AMPLITUDE)
 
     phase = np.random.uniform(0, 2*np.pi)
 
-    match type:
+    match wave_type:
         case 'sine':
             x = amplitude * np.sin(2*np.pi * freq * t + phase)
 
@@ -43,3 +43,5 @@ def generate_random_sample(type):
     # add noise
 
     return x
+
+
