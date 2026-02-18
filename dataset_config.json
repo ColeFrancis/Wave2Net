@@ -10,7 +10,7 @@
     },
     "datasetConfigs": {
         "datasetName": "Dataset",
-        "numTrain": 500,
-        "numTest": 100
+        "numTrain": 1000,
+        "numTest": 200
     }
 }

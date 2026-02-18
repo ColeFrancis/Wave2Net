@@ -12,11 +12,11 @@ from model import Model
 ################################################################################
 
 TASK = "waveform"
+#TASK = "frequency"
 DATASET_ROOT = './Dataset'
 BATCH_SIZE = 64
 
 train_dataset = SignalDataset(DATASET_ROOT, split="train", task=TASK)
-test_dataset = SignalDataset(DATASET_ROOT, split="test", task=TASK)
 
 train_loader = DataLoader(
     train_dataset,
@@ -24,14 +24,7 @@ train_loader = DataLoader(
     shuffle=True
 )
 
-val_loader = DataLoader(
-    test_dataset,
-    batch_size=BATCH_SIZE,
-    shuffle=False
-)
-
 num_classes = len(train_dataset.class_map)
-input_size = len(train_dataset[0][0])
 
 
 ################################################################################
@@ -54,7 +47,6 @@ for epoch in range(EPOCHS):
     total = 0
 
     for data, label in train_loader:
-        data = data.unsqueeze(1)
         optimizer.zero_grad()
 
         outputs = model(data)
@@ -75,5 +67,8 @@ for epoch in range(EPOCHS):
         f"Accuracy: {correct/total:.4f}"
     )
 
-torch.save(model.state_dict(), "trained_model.pth")
+torch.save({
+    "model_state_dict": model.state_dict(),
+    "class_map": train_dataset.class_map
+}, "trained_model.pth")
 print("Model Saved!")

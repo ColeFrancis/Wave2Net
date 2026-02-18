@@ -1,4 +1,4 @@
 {
-    "wave_type": "triange",
-    "frequency": 1760.0
+    "wave_type": "saw",
+    "frequency": 440.0
 }
