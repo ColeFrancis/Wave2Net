@@ -37,6 +37,10 @@ class SignalDataset(Dataset):
             val: idx for idx, val in enumerate(sorted(values))
         }
 
+        self.idx_to_class = {
+            v: k for k, v in class_map.items()
+        }
+
     def __len__(self):
         return len(self.sample_files)
 
