@@ -69,6 +69,6 @@ for epoch in range(EPOCHS):
 
 torch.save({
     "model_state_dict": model.state_dict(),
-    "class_map": train_dataset.class_map
+    "idx_to_class": train_dataset.idx_to_class
 }, "trained_model.pth")
 print("Model Saved!")
