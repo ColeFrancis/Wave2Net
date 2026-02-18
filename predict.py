@@ -17,14 +17,13 @@ loader = torch.utils.data.DataLoader(dataset, batch_size=1)
 
 checkpoint = torch.load("trained_model.pth")
 
-class_map = checkpoint["class_map"]
-num_classes = len(class_map)
+idx_to_class = checkpoint["idx_to_class"]
+num_classes = len(idx_to_class)
 
 model = Model(num_classes)
 model.load_state_dict(checkpoint["model_state_dict"])
 model.eval()
 
-idx_to_class = {v: k for k, v in class_map.items()}
 correct = 0
 total = 0
 
