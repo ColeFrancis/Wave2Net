@@ -29,7 +29,7 @@ def generate_random_sample(times, wave_type, signalConfigs):
         case 'square':
             x = amplitude * signal.square(2*np.pi * freq * times + phase)
 
-        case 'triange':
+        case 'triangle':
             x = amplitude * signal.sawtooth(2*np.pi * freq * times + phase, width=0.5)
 
         case 'saw':

@@ -2,7 +2,7 @@
     "signalConfigs": {
         "sampleRate": 44100,
         "numSamples": 256,
-        "signalTypes": ["sine", "square", "triange", "saw", "noise"],
+        "signalTypes": ["sine", "square", "triangle", "saw", "noise"],
         "frequencies": [440.0, 659.3, 880.0, 1318.5, 1760.0, 2637.0],
         "minAmplitude": -1.0,
         "maxAmplitude": 1.0,
