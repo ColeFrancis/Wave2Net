@@ -11,8 +11,8 @@ from model import Model
 ### Load in the data
 ################################################################################
 
-TASK = "waveform"
-#TASK = "frequency"
+#TASK = "waveform"
+TASK = "frequency"
 DATASET_ROOT = './Dataset'
 BATCH_SIZE = 64
 

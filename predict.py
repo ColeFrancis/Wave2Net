@@ -11,9 +11,15 @@ from model import Model
 ### Load in the data
 ################################################################################
 
+#TASK = "waveform"
+TASK = "frequency"
 
-dataset = SignalDataset("./Dataset", split="test", task="waveform")
+dataset = SignalDataset("./Dataset", split="test", task=TASK)
 loader = torch.utils.data.DataLoader(dataset, batch_size=1)
+
+################################################################################
+### Load the Model
+################################################################################
 
 checkpoint = torch.load("trained_model.pth")
 
@@ -23,6 +29,10 @@ num_classes = len(idx_to_class)
 model = Model(num_classes)
 model.load_state_dict(checkpoint["model_state_dict"])
 model.eval()
+
+################################################################################
+### Evaluate the model
+################################################################################
 
 correct = 0
 total = 0
