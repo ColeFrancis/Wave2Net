@@ -1,4 +1,4 @@
 {
-    "wave_type": "triangle",
-    "frequency": 880.0
+    "wave_type": "noise",
+    "frequency": 659.3
 }

@@ -1,4 +1,4 @@
 {
-    "wave_type": "sine",
+    "wave_type": "noise",
     "frequency": 880.0
 }

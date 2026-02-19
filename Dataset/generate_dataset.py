@@ -10,10 +10,12 @@ config_file = "./dataset_config.json"
 with open(config_file, "r") as f:
     configs = json.load(f)
 
-base_dir = Path(configs["datasetConfigs"]["datasetName"])
+base_dir = Path.cwd()
 
-if base_dir.exists():
-    shutil.rmtree(base_dir)
+if Path("./test").exists():
+    shutil.rmtree(Path("./test"))
+if Path("./train").exists():
+    shutil.rmtree(Path("./train"))
 
 def generate_random_sample(times, wave_type, signalConfigs):
     freq = signalConfigs["frequencies"][np.random.randint(0, len(signalConfigs["frequencies"])-1)]

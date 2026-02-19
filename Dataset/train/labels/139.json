@@ -1,4 +1,4 @@
 {
-    "wave_type": "saw",
-    "frequency": 659.3
+    "wave_type": "sine",
+    "frequency": 1318.5
 }

@@ -1,4 +1,4 @@
 {
-    "wave_type": "sine",
+    "wave_type": "square",
     "frequency": 880.0
 }

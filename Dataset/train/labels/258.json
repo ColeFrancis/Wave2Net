@@ -1,4 +1,4 @@
 {
-    "wave_type": "sine",
-    "frequency": 659.3
+    "wave_type": "triangle",
+    "frequency": 1760.0
 }

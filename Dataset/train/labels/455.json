@@ -1,4 +1,4 @@
 {
-    "wave_type": "noise",
+    "wave_type": "square",
     "frequency": 440.0
 }
