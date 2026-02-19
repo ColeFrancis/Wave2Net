@@ -1,9 +1,9 @@
 import torch
-import torch.nn as nn
-import torch.optim as optim
 from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
 
 from SignalDataset import SignalDataset
+from util import plot_random_signal
 
 from model import Model
 
@@ -35,13 +35,6 @@ with torch.no_grad():
         correct += (predicted == label).sum().item()
         total += label.size(0)
 
-        predicted_idx = torch.argmax(outputs, dim=1).item()
-
-        # Convert index → actual label
-        predicted_value = idx_to_class[predicted_idx]
-        true_value = idx_to_class[label.item()]
-
-        print(f"Predicted: {predicted_value}")
-        print(f"Actual:    {true_value}")
-
 print(f"Accuracy: {correct/total:.4f}")
+
+plot_random_signal(dataset, model, idx_to_class)

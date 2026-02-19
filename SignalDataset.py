@@ -38,7 +38,7 @@ class SignalDataset(Dataset):
         }
 
         self.idx_to_class = {
-            v: k for k, v in class_map.items()
+            v: k for k, v in self.class_map.items()
         }
 
     def __len__(self):
