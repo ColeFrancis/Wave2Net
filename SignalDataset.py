@@ -4,6 +4,9 @@ import torch
 from torch.utils.data import Dataset
 import numpy as np
 
+# This is a helper class that wraps the dataset up in a way that makes training the model much easier. 
+# Don't get scared, pytorch already has built tools to deal with this class
+# The only member you will likely access is idx_to_class which contains a mapping from the output neuron idx to the corresponding waveform/frequencyl
 
 class SignalDataset(Dataset):
     def __init__(self, root_dir, split="train", task="waveform"):

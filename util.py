@@ -3,6 +3,8 @@ import torch
 import random
 
 def plot_random_signal(dataset, model, idx_to_class):
+    # This function takes the dataset (instance of SignalDataset), the model (instance of Model), and the mapping from the output idx to the waveform/function
+    # This function then chooses a random sample, and plots it to easily visualize the data and the prediction
     model.eval()
     with torch.no_grad():
         rand_idx = random.randint(0, len(dataset) - 1)
