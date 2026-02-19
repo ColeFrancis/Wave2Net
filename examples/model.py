@@ -6,6 +6,7 @@ class Model(nn.Module):
     def __init__(self, num_classes):
         super().__init__()
 
+        # Define the convolutional layers
         self.features = nn.Sequential(
             nn.Conv1d(1, 32, kernel_size=7, padding=3),
             nn.BatchNorm1d(32),
@@ -30,6 +31,7 @@ class Model(nn.Module):
         # Global average pooling
         self.global_pool = nn.AdaptiveAvgPool1d(1)
 
+        # Define the fully-connected layers
         self.classifier = nn.Sequential(
             nn.Linear(128, 64),
             nn.ReLU(),

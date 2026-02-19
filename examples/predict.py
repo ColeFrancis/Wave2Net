@@ -16,8 +16,8 @@ from model import Model
 ### Load in the data
 ################################################################################
 
-#TASK = "waveform"
-TASK = "frequency"
+TASK = "waveform"
+#TASK = "frequency"
 DATASET_ROOT = '../Dataset'
 
 # Creates the dataset helper class on the training data to predict the TASK
