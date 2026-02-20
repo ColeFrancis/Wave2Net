@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 # This is only necessary to import SignalDataset because it is not in the examples directory
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from SignalDataset import SignalDataset
+from util.signal_dataset import SignalDataset
 
 from model_cnn import ModelCNN
 
@@ -18,7 +18,7 @@ from model_cnn import ModelCNN
 
 TASK = "waveform"
 #TASK = "frequency"
-DATASET_ROOT = '../Dataset'
+DATASET_ROOT = '../dataset'
 BATCH_SIZE = 64
 
 # Creates the dataset helper class on the training data to predict the TASK

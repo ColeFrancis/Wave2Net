@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 # This is only necessary to import SignalDataset because it is not in the examples directory
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from SignalDataset import SignalDataset
-from util import plot_random_signal
+from util.signal_dataset import SignalDataset
+from util.plot_random_signal import plot_random_signal
 
 from model_cnn import ModelCNN
 
@@ -18,7 +18,7 @@ from model_cnn import ModelCNN
 
 TASK = "waveform"
 #TASK = "frequency"
-DATASET_ROOT = '../Dataset'
+DATASET_ROOT = '../dataset'
 
 # Creates the dataset helper class on the training data to predict the TASK
 dataset = SignalDataset(DATASET_ROOT, split="test", task=TASK)
