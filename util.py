@@ -11,10 +11,11 @@ def plot_random_signal(dataset, model, idx_to_class):
 
         signal, label = dataset[rand_idx]
 
+        # Add batch dimension back in so everthing else works as expected
         signal = signal.unsqueeze(0)
 
         outputs = model(signal)
-        predicted_idx = torch.argmax(outputs, dim=1).item()
+        predicted_idx = torch.argmax(outputs).item()
         label_idx = label.item()
 
         plt.figure()

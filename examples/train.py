@@ -10,7 +10,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from SignalDataset import SignalDataset
 
-from model import Model
+from model_cnn import ModelCNN
 
 ################################################################################
 ### Load in the data
@@ -31,6 +31,7 @@ train_loader = DataLoader(
     shuffle=True
 )
 
+input_size = len(train_dataset[0][0])
 num_classes = len(train_dataset.class_map)
 
 ################################################################################
@@ -40,7 +41,7 @@ num_classes = len(train_dataset.class_map)
 LEARNING_RATE = 1e-3
 EPOCHS = 20
 
-model = Model(num_classes)
+model = ModelCNN(input_size, num_classes)
 
 # criterion evaluates how wrong the model is, optimizer updates the weights as we train
 criterion = nn.CrossEntropyLoss()

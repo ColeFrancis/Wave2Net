@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class Model(nn.Module):
-    def __init__(self, num_classes):
+class ModelCNN(nn.Module):
+    def __init__(self, input_size, num_classes):
         super().__init__()
 
         # Define the convolutional layers
@@ -40,6 +40,9 @@ class Model(nn.Module):
         )
 
     def forward(self, x):
+        # add extra dimension for channel (only CNN)
+        x = x.unsqueeze(1)
+        
         x = self.features(x)
         x = self.global_pool(x)      # (B, 128, 1)
         x = x.squeeze(-1)            # (B, 128)

@@ -55,9 +55,6 @@ class SignalDataset(Dataset):
         signal = np.loadtxt(sample_path).astype(np.float32)
         signal = torch.tensor(signal)
 
-        #Add dimension for channel width
-        signal = signal.unsqueeze(0)
-
         # Load label
         with open(label_path) as f:
             data = json.load(f)

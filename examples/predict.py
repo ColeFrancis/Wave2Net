@@ -10,7 +10,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from SignalDataset import SignalDataset
 from util import plot_random_signal
 
-from model import Model
+from model_cnn import ModelCNN
 
 ################################################################################
 ### Load in the data
@@ -29,6 +29,8 @@ loader = torch.utils.data.DataLoader(dataset, batch_size=1)
 ### Load the Model
 ################################################################################
 
+input_size = len(dataset[0][0])
+
 # Load the saved weights and mapping from output index to waveform/frequency
 checkpoint = torch.load("trained_model.pth")
 
@@ -37,7 +39,7 @@ idx_to_class = checkpoint["idx_to_class"]
 num_classes = len(idx_to_class)
 
 # Load the model and set it to "eval" mode (predicting, not training)
-model = Model(num_classes)
+model = ModelCNN(input_size, num_classes)
 model.load_state_dict(checkpoint["model_state_dict"])
 model.eval()
 
