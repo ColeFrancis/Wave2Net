@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from SignalDataset import SignalDataset
+from util.signal_dataset import SignalDataset
 
 from model import Model
 
