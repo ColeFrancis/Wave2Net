@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import torch
 import random
 
+# After running plot_random_signal, run xdg-open <filename>.png on most linux machines to display the image
+
 def plot_random_signal(dataset, model, idx_to_class):
     # This function takes the dataset (instance of SignalDataset), the model (instance of Model), and the mapping from the output idx to the waveform/function
     # This function then chooses a random sample, and plots it to easily visualize the data and the prediction
