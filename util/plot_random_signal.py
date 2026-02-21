@@ -24,4 +24,8 @@ def plot_random_signal(dataset, model, idx_to_class):
         plt.xlabel("Time")
         plt.ylabel("Amplitude")
         plt.tight_layout()
-        plt.show()
+
+        figname = "plot.png"
+        plt.savefig(figname)
+
+        print(f"Image saved to {figname}")
