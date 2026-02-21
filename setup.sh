@@ -1,0 +1,9 @@
+#!/bin/bash
+
+python3 -m venv workshop_env
+source workshop_env/bin/activate
+pip install --upgrade pip
+pip install torch numpy matplotlib
+
+echo "Setup complete. Run:"
+echo "source workshop_env/bin/activate"
