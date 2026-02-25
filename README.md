@@ -3,6 +3,18 @@ Train a custom neural network to classify a signals waveform and frequency.
 
 This repository was created for the Wav2Net workshop at Utah State University's (USU) 2026 Student Professional Awareness Conference (SPAC) put on by USU's IEEE Student Branch.
 
+# Getting started
+After cloning the repository run 
+
+```bash
+bash setup.sh
+```
+
+or ensure you have the following python packages installed:
+- PyTorch
+- Numpy
+- Matplotlib
+
 # Files and Directories
 
 ### Dataset/
